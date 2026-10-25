@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="uz" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Abduaziz Tojiboyev — FarDTU talabasi, Python/C++ dasturchi, 3D modellashtirish va tarmoq muhandisligi bo'yicha portfolio.">
+    <meta name="theme-color" content="#0a0f1e">
+    <meta property="og:title" content="Abduaziz Tojiboyev — Portfolio">
+    <meta property="og:description" content="Python, C++, 3ds Max va Cisco Packet Tracer bo'yicha loyihalar.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+    <title>Abduaziz Tojiboyev — Software Engineer & 3D Specialist Portfolio</title>
+    
+    <!-- Mavzuni sahifa chizilishidan oldin o'rnatish (miltillashni oldini oladi) -->
+    <script src="js/theme-init.js"></script>
+
+    <!-- Tailwind CSS (CDN) + sozlamalar -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tailwind.config.js"></script>
+
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+    <!-- Asosiy uslublar -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans transition-colors duration-300 antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Interactive Cursor Glow Effect -->
+    <div id="cursor-glow" class="hidden md:block"></div>
+
+    <!-- Background Atmospheric Lighting Blobs -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="absolute -top-40 -left-40 w-96 h-96 bg-brand-500/20 dark:bg-brand-600/30 rounded-full filter blur-[100px] animate-blob"></div>
+        <div class="absolute top-1/3 -right-40 w-96 h-96 bg-accent-cyan/20 dark:bg-accent-cyan/25 rounded-full filter blur-[100px] animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-40 left-1/3 w-96 h-96 bg-accent-pink/20 dark:bg-accent-pink/25 rounded-full filter blur-[100px] animate-blob animation-delay-4000"></div>
+    </div>
+
+    <!-- MAIN NAVIGATION BAR -->
+    <nav class="sticky top-0 z-50 glass-nav border-b border-slate-200/50 dark:border-slate-800/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                
+                <!-- Logo / Name -->
+                <a href="#hero" class="flex items-center gap-2 group">
+                    <span class="font-mono text-xl font-bold text-brand-600 dark:text-brand-500 group-hover:rotate-12 transition-transform duration-300">&lt;</span>
+                    <span class="font-display text-lg font-bold tracking-tight text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">Abduaziz.dev</span>
+                    <span class="font-mono text-xl font-bold text-brand-600 dark:text-brand-500 group-hover:-rotate-12 transition-transform duration-300">/&gt;</span>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center gap-1 lg:gap-2">
+                    <a href="#about" class="px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/60 transition">Men Haqimda</a>
+                    <a href="#skills" class="px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/60 transition">Ko'nikmalar</a>
+                    <a href="#services" class="px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/60 transition">Xizmatlar</a>
+                    <a href="#timeline" class="px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/60 transition">Yo'l xaritasi</a>
+                    <a href="#projects" class="px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/60 transition">Loyihalar</a>
+                    <a href="#terminal" class="px-3 py-2 text-sm font-mono text-xs text-accent-cyan hover:bg-accent-cyan/10 rounded-lg transition border border-accent-cyan/30"><i class="fa-solid fa-terminal mr-1"></i> CLI Mode</a>
+                    <a href="#contact" class="px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/60 transition">Bog'lanish</a>
+                </div>
+
+                <!-- Controls & Hire Button -->
+                <div class="flex items-center gap-3">
+                    <!-- Dark/Light Mode Switcher -->
+                    <button id="theme-toggle" aria-label="Mavzuni o'zgartirish" class="p-2.5 rounded-xl bg-slate-200/80 dark:bg-slate-800/80 text-slate-700 dark:text-slate-200 hover:ring-2 hover:ring-brand-500 transition">
+                        <i id="theme-toggle-dark-icon" class="fa-solid fa-moon hidden text-amber-400"></i>
+                        <i id="theme-toggle-light-icon" class="fa-solid fa-sun text-amber-500"></i>
+                    </button>
+
+                    <!-- Contact CTA Button -->
+                    <a href="https://t.me/ADD_885" target="_blank" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-gradient-to-r from-brand-600 to-accent-cyan rounded-xl shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 hover:scale-105 active:scale-95 transition-all">
+                        <i class="fa-paper-plane"></i> Telegram
+                    </a>
+
+                    <!-- Mobile Menu Hamburger Button -->
+                    <button id="mobile-menu-btn" aria-label="Menyuni ochish" class="md:hidden p-2.5 rounded-xl bg-slate-200/80 dark:bg-slate-800/80 text-slate-700 dark:text-slate-200">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-slate-200 dark:border-slate-800 bg-slate-100/95 dark:bg-slate-900/95 backdrop-blur-lg px-4 pt-2 pb-6 space-y-2">
+            <a href="#about" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-brand-500/10">Men Haqimda</a>
+            <a href="#skills" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-brand-500/10">Ko'nikmalar</a>
+            <a href="#services" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-brand-500/10">Xizmatlar</a>
+            <a href="#timeline" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-brand-500/10">Yo'l xaritasi</a>
+            <a href="#projects" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-brand-500/10">Loyihalar</a>
+            <a href="#terminal" class="mobile-link block px-3 py-2 rounded-md text-base font-mono text-sm text-accent-cyan hover:bg-accent-cyan/10">Interactive Terminal</a>
+            <a href="#contact" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-brand-500/10">Bog'lanish</a>
+        </div>
+    </nav>
+
+    <!-- SECTION 1: HERO SECTION -->
+    <section id="hero" class="relative z-10 min-h-[calc(100vh-4rem)] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Column: Hero Text Content -->
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                
+                <!-- Status Badge -->
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 backdrop-blur-md">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                    <span>Yangi loyihalar va hamkorlikka ochiqman</span>
+                </div>
+
+                <!-- Main Name Header -->
+                <h1 class="text-4xl sm:text-6xl lg:text-6xl font-extrabold tracking-tight font-display leading-tight">
+                    Salom, men <br class="hidden sm:inline"/>
+                    <span class="gradient-text">Abduaziz Tojiboyev</span>
+                </h1>
+
+                <!-- Dynamic Typewriter Line -->
+                <div class="text-xl sm:text-2xl font-mono text-slate-600 dark:text-slate-300 h-10 flex items-center justify-center lg:justify-start gap-1">
+                    <span>Men</span>
+                    <span id="typewriter" class="text-brand-600 dark:text-brand-400 font-semibold underline decoration-accent-cyan decoration-wavy decoration-2"></span>
+                    <span class="animate-pulse text-brand-500">|</span>
+                </div>
+
+                <!-- Personal Slogan & Subtitle -->
+                <blockquote class="text-base sm:text-lg text-slate-600 dark:text-slate-400 italic border-l-4 border-brand-500 pl-4 py-1 max-w-2xl mx-auto lg:mx-0">
+                    “Harakat qil, to’xtab qolma.”
+                </blockquote>
+
+                <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                    Farg'ona davlat texnika universiteti talabasi. Zamonaviy dasturlash (Python, C++), 3D modellashtirish (3ds Max) hamda tarmoq muhandisligi (Cisco Packet Tracer) sohasida kompleks yechimlar yarataman.
+                </p>
+
+                <!-- CTA Action Buttons -->
+                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+                    <a href="#contact" class="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-brand-600 to-accent-cyan text-white font-semibold shadow-xl shadow-brand-500/25 hover:shadow-brand-500/40 hover:-translate-y-1 transition-all duration-300 flex items-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i> Bog'lanish
+                    </a>
+                    <a href="#projects" class="px-6 py-3.5 rounded-2xl glass-card text-slate-800 dark:text-slate-100 font-semibold hover:bg-slate-200/50 dark:hover:bg-slate-800/80 hover:-translate-y-1 transition-all duration-300 flex items-center gap-2 border border-slate-300 dark:border-slate-700">
+                        <i class="fa-solid fa-cubes"></i> Loyihalarim
+                    </a>
+                    <a href="#skills" class="px-4 py-3.5 rounded-2xl glass-card text-slate-600 dark:text-slate-300 hover:text-brand-500 transition-colors">
+                        <i class="fa-solid fa-code"></i> Ko'nikmalar
+                    </a>
+                </div>
+
+                <!-- Key Metrics Bar -->
+                <div class="pt-8 grid grid-cols-3 gap-4 border-t border-slate-200 dark:border-slate-800/80 max-w-lg mx-auto lg:mx-0">
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-extrabold font-display text-brand-600 dark:text-brand-400">5+</div>
+                        <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">Asosiy ko'nikmalar</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-extrabold font-display text-accent-cyan">FarDTU</div>
+                        <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">O'quv maskani</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-extrabold font-display text-accent-pink">100%</div>
+                        <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">Ishtiyoq & Intilish</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Interactive Profile Card / Image Showcase -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="relative w-full max-w-md">
+                    
+                    <!-- Glowing Backlight Behind Profile Card -->
+                    <div class="absolute -inset-1.5 bg-gradient-to-r from-brand-600 via-accent-cyan to-accent-pink rounded-3xl blur-xl opacity-70 group-hover:opacity-100 transition duration-1000 animate-pulse-slow"></div>
+
+                    <!-- Profile Glass Container -->
+                    <div class="relative glass-card rounded-3xl p-6 sm:p-8 space-y-6 overflow-hidden">
+                        
+                        <!-- Image Area with Fallback Handling -->
+                        <div class="relative aspect-square rounded-2xl overflow-hidden bg-slate-800 border-2 border-slate-200 dark:border-slate-700/60 shadow-2xl group">
+                            <!-- Local Image provided by user: 5381845634417107506_121.jpg or profile.jpg -->
+                            <img src="images/profile.jpg" alt="Abduaziz Tojiboyev" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            
+                            <!-- Custom Fallback Visual if image is missing -->
+                            <div class="fallback-avatar hidden absolute inset-0 bg-gradient-to-br from-brand-700 via-slate-900 to-accent-cyan flex flex-col items-center justify-center text-white p-6 text-center">
+                                <div class="w-24 h-24 rounded-full bg-white/10 flex items-center justify-center text-3xl font-extrabold font-display mb-3 border border-white/20 shadow-inner">
+                                    AT
+                                </div>
+                                <span class="text-lg font-bold">Abduaziz Tojiboyev</span>
+                                <span class="text-xs text-slate-300">Software Developer</span>
+                            </div>
+
+                            <!-- Overlay Badge -->
+                            <div class="absolute bottom-3 right-3 bg-slate-900/80 backdrop-blur-md px-3 py-1.5 rounded-xl border border-white/10 text-xs text-white flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                                FarDTU Talabasi
+                            </div>
+                        </div>
+
+                        <!-- Info Cards below Image -->
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-slate-500 dark:text-slate-400"><i class="fa-solid fa-user-graduate text-brand-500 mr-2"></i> To'liq ismi:</span>
+                                <span class="font-semibold text-slate-800 dark:text-slate-200">Abduaziz Tojiboyev A.</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-slate-500 dark:text-slate-400"><i class="fa-solid fa-location-dot text-accent-cyan mr-2"></i> Joylashuv:</span>
+                                <span class="font-semibold text-slate-800 dark:text-slate-200">Farg'ona, O'zbekiston</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-slate-500 dark:text-slate-400"><i class="fa-solid fa-language text-accent-pink mr-2"></i> Tillar:</span>
+                                <span class="font-semibold text-slate-800 dark:text-slate-200">O'zbek, Ingliz tili</span>
+                            </div>
+                        </div>
+
+                        <!-- Quick Social Media Links -->
+                        <div class="pt-2 flex items-center justify-around border-t border-slate-200 dark:border-slate-800/80">
+                            <a href="https://t.me/ADD_885" target="_blank" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800/80 hover:bg-brand-500 hover:text-white transition-all text-slate-600 dark:text-slate-300">
+                                <i class="fa-brands fa-telegram text-lg"></i>
+                            </a>
+                            <a href="mailto:abduazizt2004@gmail.com" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800/80 hover:bg-accent-pink hover:text-white transition-all text-slate-600 dark:text-slate-300">
+                                <i class="fa-solid fa-envelope text-lg"></i>
+                            </a>
+                            <a href="tel:+998935033504" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800/80 hover:bg-accent-cyan hover:text-white transition-all text-slate-600 dark:text-slate-300">
+                                <i class="fa-solid fa-phone text-lg"></i>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 2: ABOUT ME DETAILED SECTION -->
+    <section id="about" class="relative z-10 py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-200/60 dark:border-slate-800/60">
+        <div class="max-w-7xl mx-auto space-y-12">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400">Tanishuv</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold font-display">Men haqimda batafsil</p>
+                <div class="w-16 h-1 bg-gradient-to-r from-brand-500 to-accent-cyan mx-auto rounded-full"></div>
+            </div>
+
+            <!-- About Content Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+                
+                <!-- Main Narrative -->
+                <div class="lg:col-span-2 glass-card rounded-3xl p-6 sm:p-8 space-y-6 flex flex-col justify-between">
+                    <div class="space-y-4 text-slate-600 dark:text-slate-300 leading-relaxed text-base sm:text-lg">
+                        <p>
+                            Salom! Men <strong class="text-slate-900 dark:text-white">Abduaziz Tojiboyev Abduhakim o’g’li</strong> bo'laman. Hozirda Farg'ona davlat texnika universitetida axborot texnologiyalari yo'nalishida ta'lim olmoqdaman.
+                        </p>
+                        <p>
+                            Texnologiyalarga bo'lgan qiziqishim dasturlash mantig'ini chuqur o'rganishdan boshlangan. Men <span class="text-brand-600 dark:text-brand-400 font-semibold">Python</span> va <span class="text-brand-600 dark:text-brand-400 font-semibold">C++</span> tillarida turli xil murakkab algoritmik masalalarni yechaman va amaliy dasturlar yarataman.
+                        </p>
+                        <p>
+                            Dasturlashdan tashqari, uch o'lchamli tasvirlash — <span class="text-accent-pink font-semibold">3ds Max</span> dasturida 3D modellar yaratish hamda <span class="text-accent-cyan font-semibold">Cisco Packet Tracer</span> yordamida kompyuter tarmoqlari topologiyasini loyihalash bo'yicha amaliy ko'nikmalarga egaman.
+                        </p>
+                    </div>
+
+                    <!-- Key Traits / Values -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-200 dark:border-slate-800">
+                        <div class="flex items-start gap-3">
+                            <div class="p-2.5 rounded-xl bg-brand-500/10 text-brand-500">
+                                <i class="fa-solid fa-lightbulb text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-slate-900 dark:text-white">Muammolarni yechish</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">Algoritmik va mantiqiy fikrlash</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="p-2.5 rounded-xl bg-accent-cyan/10 text-accent-cyan">
+                                <i class="fa-solid fa-graduation-cap text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-slate-900 dark:text-white">Doimiy rivojlanish</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">Yangi IT trendlarni o'zlashtirish</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education & Quick Info Sidebar -->
+                <div class="space-y-6 flex flex-col justify-between">
+                    
+                    <!-- University Card -->
+                    <div class="glass-card rounded-3xl p-6 border-l-4 border-brand-500 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">Oliy Ta'lim</span>
+                            <span class="text-xs px-2.5 py-1 rounded-full bg-brand-500/10 text-brand-500 font-mono">Talaba</span>
+                        </div>
+                        <h3 class="text-xl font-bold font-display text-slate-900 dark:text-white">Farg'ona davlat texnika universiteti (FarDTU)</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">
+                            Muhandislik va axborot texnologiyalari bo'yicha zamonaviy bilimlar bazasi.
+                        </p>
+                    </div>
+
+                    <!-- Language Proficiency Card -->
+                    <div class="glass-card rounded-3xl p-6 border-l-4 border-accent-cyan space-y-4">
+                        <span class="text-xs font-bold uppercase tracking-wider text-accent-cyan">Til Bilimlari</span>
+                        
+                        <div class="space-y-3">
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="font-medium text-slate-800 dark:text-slate-200">O'zbek tili</span>
+                                    <span class="text-xs text-slate-500 font-mono">Ona tili (Native)</span>
+                                </div>
+                                <div class="w-full h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-accent-cyan w-full rounded-full"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span class="font-medium text-slate-800 dark:text-slate-200">Ingliz tili</span>
+                                    <span class="text-xs text-slate-500 font-mono">B2 / Intermediate</span>
+                                </div>
+                                <div class="w-full h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-accent-cyan w-[65%] rounded-full"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Direct Contact Snippet -->
+                    <div class="glass-card rounded-3xl p-6 bg-gradient-to-br from-brand-600/10 to-accent-pink/10 border border-brand-500/20 text-center space-y-3">
+                        <i class="fa-solid fa-headset text-3xl text-brand-500"></i>
+                        <h4 class="font-bold text-slate-900 dark:text-white">Savollaringiz bormi?</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Telegram orqali doim aloqadaman</p>
+                        <a href="https://t.me/ADD_885" target="_blank" class="inline-block w-full py-2.5 rounded-xl bg-brand-600 text-white font-semibold text-xs uppercase tracking-wider shadow-md hover:bg-brand-700 transition">@ADD_885 ga yozish</a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 3: SKILLS SECTION WITH CATEGORY FILTER -->
+    <section id="skills" class="relative z-10 py-20 px-4 sm:px-6 lg:px-8 bg-slate-100/50 dark:bg-slate-900/40 border-t border-slate-200/60 dark:border-slate-800/60">
+        <div class="max-w-7xl mx-auto space-y-12">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400">Texnologik Arsenal</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold font-display">Mening ko'nikmalarim</p>
+                <p class="text-sm text-slate-500 dark:text-slate-400">Yo'nalishlar bo'yicha saralab ko'rishingiz mumkin</p>
+                <div class="w-16 h-1 bg-gradient-to-r from-brand-500 to-accent-cyan mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Skill Filter Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-2">
+                <button data-filter="all" class="skill-btn active px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-brand-600 text-white shadow-md transition">Barchasi</button>
+                <button data-filter="dev" class="skill-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider glass-card text-slate-600 dark:text-slate-300 hover:text-brand-500 transition">Dasturlash</button>
+                <button data-filter="design" class="skill-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider glass-card text-slate-600 dark:text-slate-300 hover:text-brand-500 transition">3D & Grafik</button>
+                <button data-filter="network" class="skill-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider glass-card text-slate-600 dark:text-slate-300 hover:text-brand-500 transition">Tarmoqlar</button>
+            </div>
+
+            <!-- Skills Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Python -->
+                <div class="skill-card glass-card rounded-3xl p-6 space-y-4 hover:border-brand-500 transition-all duration-300 glow-effect" data-category="dev">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-2xl">
+                                <i class="fa-brands fa-python"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-900 dark:text-white">Python</h3>
+                                <span class="text-xs text-slate-500">Backend & Automation</span>
+                            </div>
+                        </div>
+                        <span class="font-mono text-sm font-bold text-brand-600 dark:text-brand-400">80%</span>
+                    </div>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Telegram botlar yaratish, skriptlar, ma'lumotlarga ishlov berish va algoritmik yechimlar.
+                    </p>
+                    <div class="w-full h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                        <div class="h-full bg-gradient-to-r from-amber-500 to-brand-500 w-[80%] rounded-full"></div>
+                    </div>
+                </div>
+
+                <!-- C++ -->
+                <div class="skill-card glass-card rounded-3xl p-6 space-y-4 hover:border-brand-500 transition-all duration-300 glow-effect" data-category="dev">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-500 flex items-center justify-center text-2xl">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-900 dark:text-white">C++</h3>
+                                <span class="text-xs text-slate-500">Tizimli dasturlash</span>
+                            </div>
+                        </div>
+                        <span class="font-mono text-sm font-bold text-brand-600 dark:text-brand-400">70%</span>
+                    </div>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                        OOP tamoyillari, xotira bilan ishlash, obyektga yo'naltirilgan va tezkor algoritmlar.
+                    </p>
+                    <div class="w-full h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                        <div class="h-full bg-gradient-to-r from-blue-500 to-accent-cyan w-[70%] rounded-full"></div>
+                    </div>
+                </div>
+
+                <!-- 3ds Max -->
+                <div class="skill-card glass-card rounded-3xl p-6 space-y-4 hover:border-brand-500 transition-all duration-300 glow-effect" data-category="design">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-2xl bg-accent-pink/10 text-accent-pink flex items-center justify-center text-2xl">
+                                <i class="fa-solid fa-cube"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-900 dark:text-white">3ds Max</h3>
+                                <span class="text-xs text-slate-500">3D Modellashtirish</span>
+                            </div>
+                        </div>
+                        <span class="font-mono text-sm font-bold text-brand-600 dark:text-brand-400">65%</span>
+                    </div>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Interyer va eksteryer 3D modellarini yaratish, tekstura berish hamda vizualizatsiya.
+                    </p>
+                    <div class="w-full h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                        <div class="h-full bg-gradient-to-r from-accent-pink to-purple-600 w-[65%] rounded-full"></div>
+                    </div>
+                </div>
+
+                <!-- Cisco Packet Tracer -->
+                <div class="skill-card glass-card rounded-3xl p-6 space-y-4 hover:border-brand-500 transition-all duration-300 glow-effect" data-category="network">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center text-2xl">
+                                <i class="fa-solid fa-network-wired"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-900 dark:text-white">Cisco Packet Tracer</h3>
+                                <span class="text-xs text-slate-500">Tarmoq injeneriyasi</span>
+                            </div>
+                        </div>
+                        <span class="font-mono text-sm font-bold text-brand-600 dark:text-brand-400">70%</span>
+                    </div>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                        IP-manzillash, router va kommutatorlarni sozlash, LAN/WAN topologiyalari.
+                    </p>
+                    <div class="w-full h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                        <div class="h-full bg-gradient-to-r from-emerald-500 to-accent-cyan w-[70%] rounded-full"></div>
+                    </div>
+                </div>
+
+                <!-- Web Development Foundations -->
+                <div class="skill-card glass-card rounded-3xl p-6 space-y-4 hover:border-brand-500 transition-all duration-300 glow-effect" data-category="dev">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-2xl bg-orange-500/10 text-orange-500 flex items-center justify-center text-2xl">
+                                <i class="fa-brands fa-html5"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-900 dark:text-white">HTML5 / CSS3 / JS</h3>
+                                <span class="text-xs text-slate-500">Frontend Asoslari</span>
+                            </div>
+                        </div>
+                        <span class="font-mono text-sm font-bold text-brand-600 dark:text-brand-400">75%</span>
+                    </div>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Adaptiv va moslashuvchan interfeyslar, Tailwind CSS va dinamik veb-sahifalar.
+                    </p>
+                    <div class="w-full h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                        <div class="h-full bg-gradient-to-r from-orange-500 to-amber-400 w-[75%] rounded-full"></div>
+                    </div>
+                </div>
+
+                <!-- Soft Skills & English -->
+                <div class="skill-card glass-card rounded-3xl p-6 space-y-4 hover:border-brand-500 transition-all duration-300 glow-effect" data-category="dev">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-2xl bg-accent-cyan/10 text-accent-cyan flex items-center justify-center text-2xl">
+                                <i class="fa-solid fa-comments"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-900 dark:text-white">Ingliz tili (B2)</h3>
+                                <span class="text-xs text-slate-500">Muloqot & Hujjatlar</span>
+                            </div>
+                        </div>
+                        <span class="font-mono text-sm font-bold text-brand-600 dark:text-brand-400">65%</span>
+                    </div>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Texnik hujjatlarni o'qish, xalqaro manbalar bilan ishlash hamda erkin muloqot.
+                    </p>
+                    <div class="w-full h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                        <div class="h-full bg-gradient-to-r from-accent-cyan to-brand-500 w-[65%] rounded-full"></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 4: SERVICES OFFERED -->
+    <section id="services" class="relative z-10 py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-200/60 dark:border-slate-800/60">
+        <div class="max-w-7xl mx-auto space-y-12">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400">Imkoniyatlar</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold font-display">Sizga qanday yordam bera olaman?</p>
+                <div class="w-16 h-1 bg-gradient-to-r from-brand-500 to-accent-cyan mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Service 1 -->
+                <div class="glass-card rounded-3xl p-8 space-y-4 hover:-translate-y-2 transition-all duration-300 border-t-4 border-brand-500">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-500/10 text-brand-500 flex items-center justify-center text-3xl">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <h3 class="text-xl font-bold font-display text-slate-900 dark:text-white">Python Automation & Botlar</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Biznesingiz yoki shaxsiy ehtiyojlaringiz uchun Telegram botlar yaratish, ma'lumotlarni avtomatik yig'ish (parsing) va skriptlar ishlab chiqish.
+                    </p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="glass-card rounded-3xl p-8 space-y-4 hover:-translate-y-2 transition-all duration-300 border-t-4 border-accent-pink">
+                    <div class="w-14 h-14 rounded-2xl bg-accent-pink/10 text-accent-pink flex items-center justify-center text-3xl">
+                        <i class="fa-solid fa-cubes"></i>
+                    </div>
+                    <h3 class="text-xl font-bold font-display text-slate-900 dark:text-white">3D Modellashtirish</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                        3ds Max dasturida obyektlar, mebellar, interyer detallari va arxitektura elementlarining uch o'lchamli modellarini sifatli yaratish.
+                    </p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="glass-card rounded-3xl p-8 space-y-4 hover:-translate-y-2 transition-all duration-300 border-t-4 border-accent-cyan">
+                    <div class="w-14 h-14 rounded-2xl bg-accent-cyan/10 text-accent-cyan flex items-center justify-center text-3xl">
+                        <i class="fa-solid fa-network-wired"></i>
+                    </div>
+                    <h3 class="text-xl font-bold font-display text-slate-900 dark:text-white">Kompyuter Tarmoqlari</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Cisco Packet Tracer'da kichik va o'rta tashkilotlar uchun xavfsiz va samarali tarmoq topologiyalarini loyihalash hamda sozlash.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 5: EDUCATION & CAREER ROADMAP (TIMELINE) -->
+    <section id="timeline" class="relative z-10 py-20 px-4 sm:px-6 lg:px-8 bg-slate-100/50 dark:bg-slate-900/40 border-t border-slate-200/60 dark:border-slate-800/60">
+        <div class="max-w-5xl mx-auto space-y-12">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400">Rivojlanish Basqichlari</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold font-display">Ta'lim va Yo'l Xaritasi</p>
+                <div class="w-16 h-1 bg-gradient-to-r from-brand-500 to-accent-cyan mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Timeline Vertical Wrapper -->
+            <div class="relative border-l-2 border-slate-300 dark:border-slate-700 ml-4 md:ml-32 space-y-8">
+                
+                <!-- Timeline Item 1 -->
+                <div class="relative pl-8 md:pl-10 group">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-brand-500 border-4 border-slate-50 dark:border-slate-950 group-hover:scale-150 transition-transform"></div>
+                    <div class="hidden md:block absolute -left-32 top-1 w-24 text-right font-mono text-xs font-bold text-brand-600 dark:text-brand-400">
+                        Hozirgi vaqt
+                    </div>
+                    <div class="glass-card rounded-2xl p-6 space-y-2">
+                        <span class="md:hidden inline-block text-xs font-mono font-bold text-brand-500 mb-1">Hozirgi vaqt</span>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">FarDTU — Axborot Texnologiyalari O'quv Dasturi</h3>
+                        <p class="text-xs text-slate-500">Farg'ona Davlat Texnika Universiteti</p>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Algoritmlar, ma'lumotlar tuzilmasi, obyektga yo'naltirilgan dasturlash va tarmoq xavfsizligi fanlarini chuqurlashtirilgan holda o'rganish.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="relative pl-8 md:pl-10 group">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-accent-cyan border-4 border-slate-50 dark:border-slate-950 group-hover:scale-150 transition-transform"></div>
+                    <div class="hidden md:block absolute -left-32 top-1 w-24 text-right font-mono text-xs font-bold text-accent-cyan">
+                        Muhandislik
+                    </div>
+                    <div class="glass-card rounded-2xl p-6 space-y-2">
+                        <span class="md:hidden inline-block text-xs font-mono font-bold text-accent-cyan mb-1">Muhandislik</span>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Cisco Packet Tracer va Tarmoq Loyihalari</h3>
+                        <p class="text-xs text-slate-500">Amaliy Tarmoq Muhandisligi</p>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Kichik va yirik tashkilotlar uchun virtual tarmoqlarni qurish, statik va dinamik marshrutlash tamoyillarini o'zlashtirish.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="relative pl-8 md:pl-10 group">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-accent-pink border-4 border-slate-50 dark:border-slate-950 group-hover:scale-150 transition-transform"></div>
+                    <div class="hidden md:block absolute -left-32 top-1 w-24 text-right font-mono text-xs font-bold text-accent-pink">
+                        3D Modellashtirish
+                    </div>
+                    <div class="glass-card rounded-2xl p-6 space-y-2">
+                        <span class="md:hidden inline-block text-xs font-mono font-bold text-accent-pink mb-1">3D Modellashtirish</span>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">3ds Max va Kompyuter Grafikasi</h3>
+                        <p class="text-xs text-slate-500">Visual Art & Design</p>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Uch o'lchamli geometrik figuralar va obyektlar bilan ishlash, tekstura va yoritish texnikasini tajribada qo'llash.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 6: PROJECTS SHOWCASE WITH INTERACTIVE MODAL -->
+    <section id="projects" class="relative z-10 py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-200/60 dark:border-slate-800/60">
+        <div class="max-w-7xl mx-auto space-y-12">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400">Portfolio</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold font-display">Mening loyihalarim</p>
+                <p class="text-sm text-slate-500 dark:text-slate-400">Tafsilotlarni ko'rish uchun loyiha ustiga bosing</p>
+                <div class="w-16 h-1 bg-gradient-to-r from-brand-500 to-accent-cyan mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1 -->
+                <div data-project="python-bot" class="glass-card rounded-3xl overflow-hidden group cursor-pointer hover:border-brand-500 transition-all duration-300 flex flex-col justify-between">
+                    <div class="relative h-48 bg-gradient-to-br from-brand-900 to-slate-900 p-6 flex items-center justify-center overflow-hidden">
+                        <div class="absolute inset-0 bg-brand-500/10 group-hover:bg-brand-500/20 transition-colors"></div>
+                        <i class="fa-brands fa-python text-7xl text-brand-400 group-hover:scale-110 transition-transform duration-500"></i>
+                        <span class="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-mono bg-slate-900/80 text-brand-300 border border-brand-500/30">Python</span>
+                    </div>
+                    <div class="p-6 space-y-3 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-brand-500 transition-colors">Smart Telegram Assistant Bot</h3>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 line-clamp-2 mt-1">
+                                Foydalanuvchi so'rovlarini avtomatik qayta ishlovchi va ma'lumotlarni tartibga soluvchi maxsus bot.
+                            </p>
+                        </div>
+                        <div class="pt-4 flex items-center justify-between border-t border-slate-200 dark:border-slate-800 text-xs font-semibold text-brand-500">
+                            <span>Batafsil ko'rish</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div data-project="cpp-algo" class="glass-card rounded-3xl overflow-hidden group cursor-pointer hover:border-accent-cyan transition-all duration-300 flex flex-col justify-between">
+                    <div class="relative h-48 bg-gradient-to-br from-slate-900 to-blue-950 p-6 flex items-center justify-center overflow-hidden">
+                        <div class="absolute inset-0 bg-accent-cyan/10 group-hover:bg-accent-cyan/20 transition-colors"></div>
+                        <i class="fa-solid fa-gears text-7xl text-accent-cyan group-hover:scale-110 transition-transform duration-500"></i>
+                        <span class="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-mono bg-slate-900/80 text-accent-cyan border border-accent-cyan/30">C++</span>
+                    </div>
+                    <div class="p-6 space-y-3 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-accent-cyan transition-colors">Algoritmik Boshqaruv Tizimi</h3>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 line-clamp-2 mt-1">
+                                C++ tilida yozilgan tezkor xotira bilan ishlovchi va ma'lumotlar bazasini simulyatsiya qiluvchi dastur.
+                            </p>
+                        </div>
+                        <div class="pt-4 flex items-center justify-between border-t border-slate-200 dark:border-slate-800 text-xs font-semibold text-accent-cyan">
+                            <span>Batafsil ko'rish</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div data-project="cisco-net" class="glass-card rounded-3xl overflow-hidden group cursor-pointer hover:border-emerald-500 transition-all duration-300 flex flex-col justify-between">
+                    <div class="relative h-48 bg-gradient-to-br from-slate-900 to-emerald-950 p-6 flex items-center justify-center overflow-hidden">
+                        <div class="absolute inset-0 bg-emerald-500/10 group-hover:bg-emerald-500/20 transition-colors"></div>
+                        <i class="fa-solid fa-network-wired text-7xl text-emerald-400 group-hover:scale-110 transition-transform duration-500"></i>
+                        <span class="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-mono bg-slate-900/80 text-emerald-400 border border-emerald-500/30">Cisco</span>
+                    </div>
+                    <div class="p-6 space-y-3 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-emerald-500 transition-colors">Enterprise Campus Tarmoq Topologiyasi</h3>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 line-clamp-2 mt-1">
+                                Cisco Packet Tracer orqali ko'p qavatli bino va bo'limlar uchun xavfsiz VLAN va Router infratuzilmasi.
+                            </p>
+                        </div>
+                        <div class="pt-4 flex items-center justify-between border-t border-slate-200 dark:border-slate-800 text-xs font-semibold text-emerald-500">
+                            <span>Batafsil ko'rish</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div data-project="max-render" class="glass-card rounded-3xl overflow-hidden group cursor-pointer hover:border-accent-pink transition-all duration-300 flex flex-col justify-between">
+                    <div class="relative h-48 bg-gradient-to-br from-slate-900 to-purple-950 p-6 flex items-center justify-center overflow-hidden">
+                        <div class="absolute inset-0 bg-accent-pink/10 group-hover:bg-accent-pink/20 transition-colors"></div>
+                        <i class="fa-solid fa-cube text-7xl text-accent-pink group-hover:scale-110 transition-transform duration-500"></i>
+                        <span class="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-mono bg-slate-900/80 text-accent-pink border border-accent-pink/30">3ds Max</span>
+                    </div>
+                    <div class="p-6 space-y-3 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-accent-pink transition-colors">Zamonaviy Interyer 3D Vizualizatsiya</h3>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 line-clamp-2 mt-1">
+                                O'quv xonalari va ofis interyeri uchun yaratilgan uch o'lchamli yuqori sifatli vizual modellar.
+                            </p>
+                        </div>
+                        <div class="pt-4 flex items-center justify-between border-t border-slate-200 dark:border-slate-800 text-xs font-semibold text-accent-pink">
+                            <span>Batafsil ko'rish</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 7: INTERACTIVE CLI TERMINAL EXPERIENCE -->
+    <section id="terminal" class="relative z-10 py-20 px-4 sm:px-6 lg:px-8 bg-slate-100/50 dark:bg-slate-900/40 border-t border-slate-200/60 dark:border-slate-800/60">
+        <div class="max-w-4xl mx-auto space-y-8">
+            
+            <div class="text-center space-y-3">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-accent-cyan">Dasturchilar Uslubi</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold font-display">Interaktiv CLI Terminal</p>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Buyruqlardan foydalaning: <code class="bg-slate-200 dark:bg-slate-800 px-1.5 py-0.5 rounded text-accent-cyan font-mono">help</code>, <code class="bg-slate-200 dark:bg-slate-800 px-1.5 py-0.5 rounded text-accent-cyan font-mono">about</code>, <code class="bg-slate-200 dark:bg-slate-800 px-1.5 py-0.5 rounded text-accent-cyan font-mono">skills</code>, <code class="bg-slate-200 dark:bg-slate-800 px-1.5 py-0.5 rounded text-accent-cyan font-mono">contact</code>, <code class="bg-slate-200 dark:bg-slate-800 px-1.5 py-0.5 rounded text-accent-cyan font-mono">clear</code></p>
+            </div>
+
+            <!-- Terminal Window Box -->
+            <div class="bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-slate-800 font-mono text-sm text-slate-200">
+                <!-- Terminal Header Bar -->
+                <div class="bg-slate-950 px-4 py-3 flex items-center justify-between border-b border-slate-800">
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-red-500 inline-block"></span>
+                        <span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span>
+                        <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span>
+                        <span class="ml-2 text-xs text-slate-500">abduaziz@portfolio:~ (bash)</span>
+                    </div>
+                    <i class="fa-solid fa-terminal text-slate-600 text-xs"></i>
+                </div>
+
+                <!-- Terminal Console Body -->
+                <div id="terminal-body" class="p-6 h-80 overflow-y-auto space-y-3 text-xs sm:text-sm">
+                    <p class="text-emerald-400">Xush kelibsiz! Abduaziz Tojiboyev portfolio CLI interfeysi tayyor.</p>
+                    <p class="text-slate-400">Yordam uchun <span class="text-accent-cyan font-bold">'help'</span> deb yozing.</p>
+                </div>
+
+                <!-- Terminal Input Form -->
+                <form id="terminal-form" class="px-6 py-3 bg-slate-950/80 border-t border-slate-800 flex items-center gap-2">
+                    <span class="text-accent-cyan font-bold">abduaziz$&nbsp;</span>
+                    <input type="text" id="terminal-input" autocomplete="off" class="flex-1 bg-transparent border-none outline-none text-white font-mono text-xs sm:text-sm placeholder-slate-600" placeholder="Buyruq kiriting...">
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 8: CONTACT SECTION WITH WORKING INTERACTION -->
+    <section id="contact" class="relative z-10 py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-200/60 dark:border-slate-800/60">
+        <div class="max-w-7xl mx-auto space-y-12">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400">Aloqa</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold font-display">Keling, birga ishlaymiz!</p>
+                <p class="text-sm text-slate-500 dark:text-slate-400">Menga xabar qoldiring yoki to'g'ridan-to'g'ri bog'laning</p>
+                <div class="w-16 h-1 bg-gradient-to-r from-brand-500 to-accent-cyan mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                
+                <!-- Direct Contact Cards (5 cols) -->
+                <div class="lg:col-span-5 space-y-6">
+                    
+                    <!-- Telegram Card -->
+                    <a href="https://t.me/ADD_885" target="_blank" class="glass-card rounded-3xl p-6 flex items-center justify-between group hover:border-brand-500 transition duration-300">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-brand-500/10 text-brand-500 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                                <i class="fa-brands fa-telegram"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-semibold text-slate-400 uppercase">Telegram</span>
+                                <h4 class="text-base font-bold text-slate-900 dark:text-white">@ADD_885</h4>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-slate-400 group-hover:text-brand-500 transition"></i>
+                    </a>
+
+                    <!-- Email Card with Copy Button -->
+                    <div class="glass-card rounded-3xl p-6 flex items-center justify-between group hover:border-accent-pink transition duration-300">
+                        <div class="flex items-center gap-4 overflow-hidden">
+                            <div class="w-12 h-12 rounded-2xl bg-accent-pink/10 text-accent-pink flex items-center justify-center text-2xl shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div class="truncate">
+                                <span class="text-xs font-semibold text-slate-400 uppercase">Email</span>
+                                <h4 class="text-base font-bold text-slate-900 dark:text-white truncate">abduazizt2004@gmail.com</h4>
+                            </div>
+                        </div>
+                        <button data-copy="abduazizt2004@gmail.com" data-label="Email manzil" class="p-2.5 rounded-xl bg-slate-200/50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-brand-500 shrink-0 ml-2" title="Nusxalash">
+                            <i class="fa-solid fa-copy"></i>
+                        </button>
+                    </div>
+
+                    <!-- Phone Card with Copy Button -->
+                    <div class="glass-card rounded-3xl p-6 flex items-center justify-between group hover:border-accent-cyan transition duration-300">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-accent-cyan/10 text-accent-cyan flex items-center justify-center text-2xl shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-semibold text-slate-400 uppercase">Telefon</span>
+                                <h4 class="text-base font-bold text-slate-900 dark:text-white">+998 93 503 35 04</h4>
+                            </div>
+                        </div>
+                        <button data-copy="+998935033504" data-label="Telefon raqam" class="p-2.5 rounded-xl bg-slate-200/50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-brand-500 shrink-0" title="Nusxalash">
+                            <i class="fa-solid fa-copy"></i>
+                        </button>
+                    </div>
+
+                    <!-- Location Card -->
+                    <div class="glass-card rounded-3xl p-6 flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center text-2xl">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-semibold text-slate-400 uppercase">Manzil</span>
+                            <h4 class="text-base font-bold text-slate-900 dark:text-white">Farg'ona shahri, O'zbekiston</h4>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Contact Interactive Form (7 cols) -->
+                <div class="lg:col-span-7 glass-card rounded-3xl p-8 space-y-6">
+                    <h3 class="text-xl font-bold font-display text-slate-900 dark:text-white">Xabar Yo'llash</h3>
+                    
+                    <form id="contact-form" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase mb-2">Ismingiz</label>
+                                <input type="text" id="form-name" required class="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-900/80 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white focus:outline-none focus:border-brand-500 transition text-sm" placeholder="Ismingizni kiriting">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase mb-2">Aloqa (Telegram / Email)</label>
+                                <input type="text" id="form-contact" required class="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-900/80 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white focus:outline-none focus:border-brand-500 transition text-sm" placeholder="@username yoki email">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase mb-2">Mavzu</label>
+                            <input type="text" id="form-subject" required class="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-900/80 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white focus:outline-none focus:border-brand-500 transition text-sm" placeholder="Loyiha, taklif yoki savol">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase mb-2">Xabar matni</label>
+                            <textarea id="form-message" rows="4" required class="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-900/80 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white focus:outline-none focus:border-brand-500 transition text-sm" placeholder="Xabaringizni batafsil bayon eting..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-600 to-accent-cyan text-white font-bold text-sm uppercase tracking-wider shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> Xabarni Yuborish
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <footer class="relative z-10 py-10 px-4 sm:px-6 lg:px-8 border-t border-slate-200/80 dark:border-slate-800/80 bg-slate-100/30 dark:bg-slate-950/50 text-center space-y-4">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="text-sm text-slate-500 dark:text-slate-400">
+                © <span id="current-year">2026</span> <strong class="text-slate-800 dark:text-slate-200">Abduaziz Tojiboyev</strong>. Barcha huquqlar himoyalangan.
+            </div>
+            <div class="flex items-center gap-4 text-lg text-slate-500">
+                <a href="https://t.me/ADD_885" target="_blank" class="hover:text-brand-500 transition"><i class="fa-brands fa-telegram"></i></a>
+                <a href="mailto:abduazizt2004@gmail.com" class="hover:text-accent-pink transition"><i class="fa-solid fa-envelope"></i></a>
+                <a href="tel:+998935033504" class="hover:text-accent-cyan transition"><i class="fa-solid fa-phone"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL POPUP FOR PROJECT DETAILS -->
+    <div id="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+        <div class="glass-card max-w-2xl w-full rounded-3xl p-6 sm:p-8 space-y-6 max-h-[90vh] overflow-y-auto border border-slate-700">
+            <div class="flex items-center justify-between border-b border-slate-700/60 pb-4">
+                <h3 id="modal-title" class="text-2xl font-bold font-display text-slate-900 dark:text-white">Loyiha Nomi</h3>
+                <button data-close-modal aria-label="Yopish" class="p-2 rounded-xl bg-slate-800 text-slate-400 hover:text-white">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            
+            <div id="modal-body" class="space-y-4 text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                <!-- Dynamic Modal Content injected by JS -->
+            </div>
+
+            <div class="pt-4 border-t border-slate-700/60 flex justify-end">
+                <button data-close-modal class="px-6 py-2.5 rounded-xl bg-brand-600 text-white font-semibold text-xs uppercase tracking-wider hover:bg-brand-700 transition">
+                    Yopish
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- NOTIFICATION TOAST -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 hidden px-5 py-3 rounded-2xl bg-slate-900 text-white shadow-2xl border border-slate-700 items-center gap-3 text-sm font-medium">
+        <i id="toast-icon" class="fa-solid fa-circle-check text-emerald-400"></i>
+        <span id="toast-message">Xabar muvaffaqiyatli nusxalandi!</span>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/main.js" defer></script>
+</body>
+</html>

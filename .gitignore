@@ -1,0 +1,4 @@
+node_modules/
+.env
+data/messages.json
+.DS_Store

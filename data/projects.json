@@ -1,0 +1,39 @@
+{
+  "python-bot": {
+    "title": "Smart Telegram Assistant Bot",
+    "tech": ["Python", "aiogram", "SQLite", "Asyncio"],
+    "description": "Ushbu Telegram bot foydalanuvchilarga avtomatlashtirilgan xizmat ko'rsatish, buyurtmalarni qabul qilish va ma'lumotlar bazasiga saqlash uchun mo'ljallangan.",
+    "features": [
+      "Asinxron ishlash arxitekturasi",
+      "Foydalanuvchilar qulayligi uchun interaktiv tugmalar",
+      "Ma'lumotlar xavfsizligi va tezkor qayta ishlash"
+    ]
+  },
+  "cpp-algo": {
+    "title": "Algoritmik Boshqaruv Tizimi",
+    "tech": ["C++", "STL", "OOP", "Data Structures"],
+    "description": "Obyektga yo'naltirilgan dasturlash tamoyillari asosida tayyorlangan yuqori unumdorlikka ega konsol dasturi.",
+    "features": [
+      "Binary Search va QuickSort algoritmlari qo'llanilgan",
+      "Xotirani samarali boshqarish va pointerlar bilan ishlash"
+    ]
+  },
+  "cisco-net": {
+    "title": "Enterprise Campus Tarmoq Topologiyasi",
+    "tech": ["Cisco Packet Tracer", "OSPF", "VLAN", "DHCP", "NAT"],
+    "description": "Universitet va korxonalar uchun simulyatsiya qilingan tarmoq loyihasi.",
+    "features": [
+      "Xavfsiz va alohida VLAN zonalari",
+      "Dinamik routing (OSPF) va IP adreslash"
+    ]
+  },
+  "max-render": {
+    "title": "Zamonaviy Interyer 3D Vizualizatsiya",
+    "tech": ["3ds Max", "Corona / V-Ray Render"],
+    "description": "Zamonaviy uslubdagi o'quv va ish xonalarining 3D modeli.",
+    "features": [
+      "Fotorealistik yoritish (HDRI va Sun setup)",
+      "Detallashgan tekstura va materiallar"
+    ]
+  }
+}

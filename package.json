@@ -1,0 +1,22 @@
+{
+  "name": "abduaziz-portfolio",
+  "version": "1.0.0",
+  "description": "Abduaziz Tojiboyev — shaxsiy portfolio sayti (HTML, CSS, JS, Node.js)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "author": "Abduaziz Tojiboyev",
+  "license": "MIT",
+  "dependencies": {
+    "compression": "^1.7.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0"
+  }
+}
